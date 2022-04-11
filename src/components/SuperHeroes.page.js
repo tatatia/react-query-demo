@@ -4,7 +4,7 @@ import axios from 'axios'
 export const SuperHeroesPage = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [data, setData] = useState([])
-   // const [error, setError] = useState('')
+    const [error, setError] = useState('')
 
     useEffect(() => {
         axios
@@ -14,7 +14,7 @@ export const SuperHeroesPage = () => {
                 setIsLoading(false)
             })
             .catch(error => {
-               // setError(error.message)
+                setError(error.message)
                 setIsLoading(false)
             })
     }, [])
@@ -23,9 +23,9 @@ export const SuperHeroesPage = () => {
         return <h2>Loading...</h2>
     }
 
-    // if (error) {
-    //     return <h2>{error}</h2>
-    // }
+    if (error) {
+        return <h2>{error}</h2>
+    }
 
     return (
         <>
